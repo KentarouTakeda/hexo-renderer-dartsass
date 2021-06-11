@@ -17,5 +17,8 @@
     "renderer"
   ],
   "author": "KentarouTakeda",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "sass": "^1.34.1"
+  }
 }
