@@ -1,0 +1,21 @@
+{
+  "name": "hexo-renderer-dartsass",
+  "version": "0.0.1",
+  "description": "Sass renderer plugin for Hexo (use dartsass instead of libsass)",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KentarouTakeda/hexo-renderer-dartsass.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hexo",
+    "sass",
+    "scss",
+    "renderer"
+  ],
+  "author": "KentarouTakeda",
+  "license": "MIT"
+}
