@@ -1,7 +1,7 @@
 import Hexo = require('hexo');
 import sass = require('sass');
 
-export const make = function(this: Hexo, data: Hexo.extend.RendererData, options: Object){
+export const make = function(this: Hexo, data: Hexo.extend.RendererData, options: {[key:string]:any}){
 
     const config = Object.assign(
         this.theme.config.sass || {},
