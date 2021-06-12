@@ -3,7 +3,7 @@ import sass = require('sass');
 
 export const make = function(data: Hexo.extend.RendererData, options: Object){
     return new Promise<string>((resolve, reject)=>{
-        sass.render({data: data.text}, (err, result) => {
+        sass.render({file: data.path}, (err, result) => {
             if(err) {
                 reject(err);
             }
