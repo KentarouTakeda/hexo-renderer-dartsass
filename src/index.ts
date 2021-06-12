@@ -1,12 +1,4 @@
-import sass = require('sass');
+import { make } from './renderer';
 
-hexo.extend.renderer.register('scss', 'css', function(data, options){
-    return new Promise((resolve, reject)=>{
-        sass.render({data: data.text}, (err, result) => {
-            if(err) {
-                reject(err);
-            }
-            resolve(result.css.toString());
-        });
-    });
-});
+hexo.extend.renderer.register('scss', 'css', make);
+hexo.extend.renderer.register('sass', 'css', make);
