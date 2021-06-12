@@ -13,6 +13,7 @@ export const make = function(this: Hexo, data: Hexo.extend.RendererData, options
         sass.render(config, (err, result) => {
             if(err) {
                 reject(err);
+                return;
             }
             resolve(result.css.toString());
         });

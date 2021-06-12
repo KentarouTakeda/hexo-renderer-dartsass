@@ -34,4 +34,15 @@ describe('Function `make`', ()=>{
         const result = await make.call(hexo, data, {});
         expect(result).toBe('html body {\n width: 100%;\n}')
     });
+
+    it('throw error with invalid scss syntax', async () => {
+        const hexo = new Hexo();
+        const data: Hexo.extend.RendererData = {
+            path: __dirname + '/files/error.scss',
+            text: ''
+        };
+
+        const fnuc = make.call(hexo, data, {});
+        await expectAsync(fnuc).toBeRejectedWithError();
+    });
 });
