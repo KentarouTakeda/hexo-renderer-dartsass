@@ -3,6 +3,11 @@ on:
   pull_request:
     branches:
       - master
+  push:
+    branches:
+      - master
+    tags:
+      - "!*"
 jobs:
   test:
     runs-on: ubuntu-latest
