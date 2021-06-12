@@ -13,7 +13,8 @@
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine-ts",
+    "watch": "chokidar 'src/**/*.ts' 'spec/**/*.ts' -c 'npm test'"
   },
   "keywords": [
     "hexo",
@@ -28,7 +29,13 @@
   },
   "devDependencies": {
     "@types/hexo": "^3.8.5",
+    "@types/jasmine": "^3.7.7",
     "@types/sass": "^1.16.0",
+    "chokidar-cli": "^2.1.0",
+    "jasmine": "^3.7.0",
+    "jasmine-console-reporter": "^3.1.0",
+    "jasmine-ts": "^0.3.3",
+    "ts-node": "^10.0.0",
     "typescript": "^4.3.2"
   }
 }
