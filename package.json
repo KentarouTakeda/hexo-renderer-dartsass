@@ -20,5 +20,9 @@
   "license": "MIT",
   "dependencies": {
     "sass": "^1.34.1"
+  },
+  "devDependencies": {
+    "@types/hexo": "^3.8.5",
+    "typescript": "^4.3.2"
   }
 }
