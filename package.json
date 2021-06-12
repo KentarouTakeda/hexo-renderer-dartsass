@@ -2,7 +2,7 @@
   "name": "hexo-renderer-dartsass",
   "version": "0.0.1",
   "description": "Sass renderer plugin for Hexo (use dartsass instead of libsass)",
-  "main": "index.js",
+  "main": "dist/",
   "repository": {
     "type": "git",
     "url": "https://github.com/KentarouTakeda/hexo-renderer-dartsass.git"
