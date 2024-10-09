@@ -21,7 +21,7 @@ Check out the [Dart Sass API docs](https://github.com/sass/dart-sass#javascript-
      ```
      $highlight_theme: hexo-config('highlight_theme')
      ```
-     
+
    - hexo-theme-config($key)
 
      Similar to the `hexo-config`, you can use `hexo-theme-config` to access your hexo theme's configuration.
