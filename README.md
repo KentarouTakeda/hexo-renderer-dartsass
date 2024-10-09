@@ -9,10 +9,10 @@ $ npm install --save hexo-renderer-dartsass
 ```
 
 ## Config
-Anything specified under the key `sass` in your `_config.yml` files will be passed directly to the `sass.render()` call. 
-Check out the [Dart Sass API docs](https://github.com/sass/dart-sass#javascript-api) for all available settings.
+Anything specified under the key `sass` in your `_config.yml` files will be passed directly to the `sass.compileAsync()` call.
+Check out the [Sass API docs](https://sass-lang.com/documentation/js-api/interfaces/options/) for all available settings.
 
-## Features
+## Additional features
 1. Export some handy hexo related global functions to the Sass compiler context like [mamboer/hexo-renderer-scss].
    - hexo-config($key)
 
@@ -21,7 +21,7 @@ Check out the [Dart Sass API docs](https://github.com/sass/dart-sass#javascript-
      ```
      $highlight_theme: hexo-config('highlight_theme')
      ```
-     
+
    - hexo-theme-config($key)
 
      Similar to the `hexo-config`, you can use `hexo-theme-config` to access your hexo theme's configuration.
