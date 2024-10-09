@@ -1,19 +1,15 @@
 import Hexo from 'hexo';
 import sass = require('sass');
-import { LegacyOptions } from 'sass/types/legacy/options';
 
 export const make = function (this: Hexo, data: Hexo.extend.RendererData, options: {
     [key: string]: any
 }) {
+    if(data.path == null) {
+        return;
+    }
 
     const self = this;
     const themeCfg = self.theme.config || {};
-
-    // support global and theme-specific config
-    const userConfig = Object.assign(
-        themeCfg.node_sass || {},
-        self.config.node_sass || {},
-    );
 
     function getProperty(obj: any, name: string) {
         name = name.replace(/\[(\w+)]/g, '.$1').replace(/^\./, '');
@@ -42,41 +38,32 @@ export const make = function (this: Hexo, data: Hexo.extend.RendererData, option
         return result;
     }
 
-    const config: LegacyOptions<'async'> = Object.assign(
+    const config: sass.Options<'async'> = Object.assign(
         this.theme.config.sass || {},
         this.config.sass || {},
-        {file: data.path},
         {
             functions: {
-                'hexo-theme-config($ckey)': function (ckey: any) {
-                    const val = getProperty(themeCfg, ckey.getValue()),
-                        sassVal = new sass.types.String(val);
-                    if (userConfig.debug) {
-                        console.log('hexo-theme-config.' + ckey.getValue(), val);
+                'hexo-theme-config($ckey)': function ([arg]: sass.Value[]) {
+                    if(!(arg instanceof sass.SassString)) {
+                        return sass.sassNull;
                     }
-                    return sassVal;
+
+                    const val = getProperty(themeCfg, arg.text);
+
+                    return new sass.SassString(val, {quotes:false});
                 },
-                'hexo-config($ckey)': function (ckey: any) {
-                    const val = getProperty(self.config, ckey.getValue()),
-                        sassVal = new sass.types.String(val);
-                    if (userConfig.debug) {
-                        console.log('hexo-config.' + ckey.getValue(), val);
+                'hexo-config($ckey)': function ([arg]: sass.Value[]) {
+                    if(!(arg instanceof sass.SassString)) {
+                        return sass.sassNull;
                     }
-                    return sassVal;
+
+                    const val = getProperty(self.config, arg.text);
+
+                    return new sass.SassString(val, {quotes:false});
                 },
             },
         },
     );
 
-    return new Promise<string>((resolve, reject) => {
-        sass.render(config, (err, result) => {
-            if (err) {
-                reject(err);
-                return;
-            }
-            if (result) {
-                resolve(result.css.toString());
-            }
-        });
-    });
+    return sass.compileAsync(data.path, config).then(result => result.css)
 }

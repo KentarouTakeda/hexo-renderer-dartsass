@@ -1,5 +1,5 @@
 html
     body
         width: 100%
-        background: to-lower-case(call("hexo-theme-config", 'color'))
-        color: to-lower-case(call('hexo-config', 'color'))
+        background: to-lower-case(call(get-function("hexo-theme-config"), 'color'))
+        color: to-lower-case(call(get-function('hexo-config'), 'color'))
