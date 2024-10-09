@@ -1,4 +1,4 @@
-import Hexo = require('hexo');
+import Hexo from 'hexo';
 import sass = require('sass');
 import { LegacyOptions } from 'sass/types/legacy/options';
 

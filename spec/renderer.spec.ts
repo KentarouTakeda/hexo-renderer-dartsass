@@ -1,4 +1,4 @@
-import Hexo = require('hexo');
+import Hexo from 'hexo';
 import { make } from '../src/renderer';
 
 describe('Function `make`', () => {
