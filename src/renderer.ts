@@ -1,11 +1,11 @@
 import Hexo from 'hexo';
 import sass = require('sass');
 
-export const make = function (this: Hexo, data: Hexo.extend.RendererData, options: {
+export const make = async function (this: Hexo, data: Hexo.extend.RendererData, options: {
     [key: string]: any
 }) {
     if(data.path == null) {
-        return;
+        return '';
     }
 
     const self = this;
