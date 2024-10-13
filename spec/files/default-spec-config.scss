@@ -3,5 +3,12 @@ html {
         width: 100%;
         background: to-lower-case(call(get-function("hexo-theme-config"), 'color'));
         color: to-lower-case(call(get-function('hexo-config'), 'color'));
+
+        @each $name in call(get-function("hexo-theme-config"), 'names') {
+          --#{$name}: #{$name};
+        }
+        @each $color in call(get-function("hexo-config"), 'colors') {
+          --#{$color}: #{$color};
+        }
     }
 }
