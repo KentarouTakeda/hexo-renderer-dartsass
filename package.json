@@ -1,6 +1,6 @@
 {
   "name": "hexo-renderer-dartsass",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Sass renderer plugin for Hexo (use dartsass instead of libsass)",
   "main": "dist/",
   "files": [
