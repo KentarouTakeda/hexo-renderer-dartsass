@@ -50,6 +50,11 @@ export const make = async function (this: Hexo, data: Hexo.extend.RendererData, 
 
                     const val = getProperty(themeCfg, arg.text);
 
+                    if (Array.isArray(val)) {
+                        const vals = val.map(x => new sass.SassString(x));
+                        return new sass.SassList(vals);
+                    }
+
                     return new sass.SassString(val, {quotes:false});
                 },
                 'hexo-config($ckey)': function ([arg]: sass.Value[]) {
@@ -58,6 +63,11 @@ export const make = async function (this: Hexo, data: Hexo.extend.RendererData, 
                     }
 
                     const val = getProperty(self.config, arg.text);
+
+                    if (Array.isArray(val)) {
+                        const vals = val.map(x => new sass.SassString(x));
+                        return new sass.SassList(vals);
+                    }
 
                     return new sass.SassString(val, {quotes:false});
                 },
