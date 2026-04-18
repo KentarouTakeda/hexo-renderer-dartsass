@@ -1,6 +1,6 @@
 {
   "name": "hexo-renderer-dartsass",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Sass renderer plugin for Hexo (use dartsass instead of libsass)",
   "main": "dist/",
   "files": [
@@ -13,7 +13,7 @@
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "npm run build",
-    "test": "jasmine-ts",
+    "test": "tsx node_modules/.bin/jasmine",
     "watch": "chokidar 'src/**/*.ts' 'spec/**/*.ts' -c 'npm test'"
   },
   "keywords": [
@@ -24,19 +24,19 @@
   ],
   "author": "KentarouTakeda",
   "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
     "sass": "^1.37.5"
   },
   "devDependencies": {
-    "@types/hexo": "^3.8.7",
-    "@types/jasmine": "^3.8.2",
-    "@types/sass": "^1.16.1",
+    "@types/jasmine": "^6.0.0",
+    "@types/node": "^25.6.0",
     "chokidar-cli": "^3.0.0",
-    "hexo": "^5.4.0",
-    "jasmine": "^3.8.0",
-    "jasmine-console-reporter": "^3.1.0",
-    "jasmine-ts": "^0.4.0",
-    "ts-node": "^10.2.0",
-    "typescript": "^5.6.3"
+    "hexo": "^7.0.0",
+    "jasmine": "^6.0.0",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.2"
   }
 }

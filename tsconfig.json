@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2020",
     "module": "commonjs",
-    "esModuleInterop": true,
+    "moduleResolution": "bundler",
     "outDir": "./dist",
     "rootDir": "./src",
-    "strict": true,
     "noImplicitReturns": true,
-    "lib": ["ES7"]
+    "skipLibCheck": true,
+    "types": ["node"],
+    "lib": ["ES2020"]
   },
   "exclude": [
     "spec/**/*"
