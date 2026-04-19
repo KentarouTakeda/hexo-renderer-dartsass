@@ -1,10 +1,11 @@
-import Hexo from 'hexo';
+import Hexo = require('hexo');
 import { make } from '../src/renderer';
+import type { StoreFunctionData } from 'hexo/dist/extend/renderer';
 
 describe('Function `make`', () => {
     it('compile scss with default settings', async () => {
         const hexo = new Hexo();
-        const data: Hexo.extend.RendererData = {
+        const data: StoreFunctionData = {
             path: __dirname + '/files/default.scss',
             text: '',
         };
@@ -15,7 +16,7 @@ describe('Function `make`', () => {
     it('compile scss with custom config', async () => {
         const hexo = new Hexo();
         hexo.config.sass = {style: "compressed"};
-        const data: Hexo.extend.RendererData = {
+        const data: StoreFunctionData = {
             path: __dirname + '/files/default.scss',
             text: '',
         };
@@ -25,7 +26,7 @@ describe('Function `make`', () => {
 
     it('throw error with invalid scss syntax', async () => {
         const hexo = new Hexo();
-        const data: Hexo.extend.RendererData = {
+        const data: StoreFunctionData = {
             path: __dirname + '/files/error.scss',
             text: '',
         };
@@ -36,7 +37,7 @@ describe('Function `make`', () => {
 
     it('compile sass with default settings', async () => {
         const hexo = new Hexo();
-        const data: Hexo.extend.RendererData = {
+        const data: StoreFunctionData = {
             path: __dirname + '/files/default.sass',
             text: '',
         };
@@ -50,7 +51,7 @@ describe('Function `make`', () => {
         hexo.theme.config.names = ["asa", "barry", "carlo"];
         hexo.config.color = '#FFF';
         hexo.config.colors = ["white", "black", "orange"]
-        const data: Hexo.extend.RendererData = {
+        const data: StoreFunctionData = {
             path: __dirname + '/files/default-spec-config.scss',
             text: '',
         };
@@ -64,7 +65,7 @@ describe('Function `make`', () => {
         hexo.theme.config.names = ["asa", "barry", "carlo"];
         hexo.config.color = '#FFF';
         hexo.config.colors = ["white", "black", "orange"]
-        const data: Hexo.extend.RendererData = {
+        const data: StoreFunctionData = {
             path: __dirname + '/files/default-spec-config.sass',
             text: '',
         };
